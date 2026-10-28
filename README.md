@@ -1,6 +1,27 @@
-# Pablo Gómez — Sitio Oficial
+# Pablo Gómez | Sitio web oficial — Frontend Portfolio Project
 
-## Descripción
+**ES:** Sitio web multipágina para la presencia digital de un artista musical, construido con HTML5, SCSS, JavaScript modular y Vite. Incluye biografía, eventos, galería y componentes interactivos.
+
+**EN:** Multi-page website for a music artist's digital presence, built with semantic HTML, modular SCSS, vanilla JavaScript and Vite. Includes biography, events, gallery and interactive components.
+
+**Estado / Status:** Prototipo frontend en desarrollo; no publicado. Los eventos, métricas sociales y las reservas son demostraciones. / Frontend prototype in development, not deployed. Events, social metrics and booking are demo-only.
+
+**Tecnologías / Stack:** `HTML5` · `SCSS` · `JavaScript (ES Modules)` · `Vite` · `LocalStorage`
+
+**[Código fuente / Source code](https://github.com/PabloGomezCr/pablogomezweboficial)**
+
+## Inicio rápido / Quick start
+
+```bash
+git clone https://github.com/PabloGomezCr/pablogomezweboficial.git
+cd pablogomezweboficial
+npm install
+npm run dev
+```
+
+El servidor de desarrollo mostrará una dirección local (normalmente `http://localhost:5173`). Para generar una versión de compilación local: `npm run build`.
+
+## Descripción detallada
 
 Sitio web estático multipágina para la presencia digital oficial de **Pablo Gómez**. La propuesta combina una estética editorial premium en negro, blanco y dorado con una experiencia moderna, responsive y accesible.
 
@@ -473,7 +494,7 @@ También puedes usar `admin.html` para agregar, editar y eliminar fotografías l
 
 ### Redes sociales
 
-Reemplaza `50664774940` en las cuatro páginas HTML por el número oficial de WhatsApp en formato internacional, sin `+`, espacios ni guiones.
+Revisá las referencias a WhatsApp en las páginas HTML y configurá únicamente el contacto público que desees mostrar. No incluyas números privados en archivos del repositorio.
 
 ### Buscador
 
