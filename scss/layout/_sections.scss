@@ -1,0 +1,16 @@
+@use '../abstracts/variables' as v;
+
+.social-metrics {
+  border-bottom: 1px solid v.$border;
+}
+
+.social-status {
+  margin-top: 1rem;
+  color: v.$gray;
+  font-size: .82rem;
+}
+
+.related-link {
+  padding-top: 0;
+  text-align: center;
+}

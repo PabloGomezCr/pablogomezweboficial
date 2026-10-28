@@ -1,0 +1,92 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.search-panel {
+  @include m.glass;
+  pointer-events: auto;
+  width: min(50%, v.$nav-max);
+  min-width: 620px;
+  margin: .7rem auto 0;
+  border-radius: v.$radius-md;
+  padding: 1rem;
+  box-shadow: v.$shadow;
+}
+
+.search-field {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: .65rem;
+
+  input {
+    width: 100%;
+    border: 1px solid v.$border;
+    border-radius: 999px;
+    padding: .85rem 1rem;
+    background: rgba(255,255,255,.05);
+    color: v.$white;
+  }
+}
+
+.search-close {
+  width: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.05);
+  font-size: 1.4rem;
+}
+
+.search-hint {
+  margin: .75rem .2rem;
+  color: v.$gray;
+  font-size: .82rem;
+}
+
+.search-results {
+  display: grid;
+  gap: .45rem;
+  max-height: min(55vh, 480px);
+  overflow-y: auto;
+}
+
+.search-result {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: .18rem 1rem;
+  padding: .8rem .9rem;
+  border-radius: 14px;
+  color: v.$white;
+  text-decoration: none;
+  border: 1px solid transparent;
+
+  strong {
+    font-family: v.$font-display;
+    font-weight: 400;
+  }
+
+  span {
+    color: v.$gold-light;
+    font-size: .75rem;
+  }
+
+  small {
+    grid-column: 1 / -1;
+    color: v.$gray;
+  }
+
+  &:hover,
+  &.is-keyboard-active {
+    background: rgba(255,255,255,.05);
+    border-color: rgba(200,169,107,.22);
+  }
+}
+
+.search-empty {
+  padding: 1rem;
+  color: v.$gray;
+}
+
+@media (max-width: 900px) {
+  .search-panel {
+    width: 96vw;
+    min-width: 0;
+  }
+}

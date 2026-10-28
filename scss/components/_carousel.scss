@@ -1,0 +1,93 @@
+@use '../abstracts/variables' as v;
+
+.carousel-controls {
+  display: flex;
+  gap: .5rem;
+}
+
+.carousel-arrow {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.055);
+  border: 1px solid v.$border;
+}
+
+.live-carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(240px, 28%);
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: .7rem;
+  scrollbar-color: v.$gold-dark transparent;
+}
+
+.live-card {
+  scroll-snap-align: start;
+  min-width: 0;
+}
+
+.live-media {
+  position: relative;
+  width: 100%;
+  border: 1px solid v.$border;
+  border-radius: v.$radius-md;
+  overflow: hidden;
+  background: #111;
+
+  video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    background: #000;
+
+    &:fullscreen,
+    &:-webkit-full-screen {
+      width: 100vw;
+      height: 100vh;
+      max-width: none;
+      aspect-ratio: auto;
+      object-fit: contain;
+    }
+  }
+}
+
+.live-expand {
+  position: absolute;
+  top: .65rem;
+  right: .65rem;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  min-height: 38px;
+  padding: .45rem .7rem;
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 999px;
+  color: v.$white;
+  background: rgba(0,0,0,.72);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.3);
+
+  &:hover {
+    color: v.$black;
+    background: v.$gold-light;
+  }
+}
+
+.live-meta {
+  padding: 1rem .2rem 0;
+
+  p {
+    margin-top: .25rem;
+    color: v.$gray;
+  }
+}
+
+@media (max-width: 760px) {
+  .live-carousel {
+    grid-auto-columns: 76%;
+  }
+}

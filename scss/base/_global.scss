@@ -1,0 +1,80 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+body {
+  min-height: 100vh;
+  overflow-x: clip;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(200, 169, 107, .08), transparent 28rem),
+    v.$black;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+.section-shell {
+  @include m.container;
+  padding-block: clamp(4.5rem, 9vw, 8.5rem);
+}
+
+.section-intro {
+  max-width: 760px;
+
+  &.compact {
+    max-width: 620px;
+  }
+
+  p:last-child {
+    margin-top: 1rem;
+    color: v.$gray;
+  }
+}
+
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.page-hero {
+  padding-top: clamp(9rem, 16vw, 13rem);
+  padding-bottom: clamp(3rem, 7vw, 6rem);
+
+  p:last-child {
+    max-width: 720px;
+    margin-top: 1.25rem;
+    color: v.$gray;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  @include m.focus-ring;
+}
+
+::selection {
+  background: v.$gold;
+  color: v.$black;
+}

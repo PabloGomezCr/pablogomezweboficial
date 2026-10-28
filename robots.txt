@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Reemplazar por el dominio definitivo antes de producción.
+Sitemap: https://TU-DOMINIO.com/sitemap.xml

@@ -1,0 +1,123 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.site-modal {
+  width: min(94vw, 1100px);
+  max-height: 92vh;
+  padding: 0;
+  border: 0;
+  border-radius: v.$radius-md;
+  color: v.$white;
+  background: transparent;
+  overflow: visible;
+
+  &::backdrop {
+    background: rgba(0,0,0,.78);
+    backdrop-filter: blur(10px);
+  }
+}
+
+.modal-shell {
+  @include m.glass;
+  max-height: 92vh;
+  overflow: auto;
+  border-radius: v.$radius-md;
+  box-shadow: 0 40px 100px rgba(0,0,0,.55);
+}
+
+.modal-head {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  background: rgba(8,8,8,.9);
+  border-bottom: 1px solid v.$border;
+
+  h2 {
+    font-size: 1.4rem;
+  }
+}
+
+.icon-button {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.06);
+  font-size: 1.5rem;
+}
+
+.modal-body {
+  padding: 1.2rem;
+}
+
+.video-modal-content {
+  display: grid;
+  place-items: center;
+
+  video {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: min(76vh, 900px);
+    object-fit: contain;
+    border-radius: 16px;
+    background: #000;
+  }
+
+  video[data-orientation='portrait'] {
+    height: min(76vh, 900px);
+  }
+
+  video[data-orientation='landscape'] {
+    width: min(100%, 1200px);
+  }
+
+  video:fullscreen,
+  video:-webkit-full-screen {
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    max-height: none;
+    aspect-ratio: auto;
+    object-fit: contain;
+    border-radius: 0;
+  }
+}
+
+.photo-modal-content {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(260px, .35fr);
+  gap: 1.25rem;
+
+  img {
+    width: 100%;
+    max-height: 76vh;
+    object-fit: contain;
+    border-radius: 16px;
+    background: #000;
+  }
+}
+
+.photo-modal-meta {
+  align-self: end;
+  display: grid;
+  gap: .8rem;
+  color: v.$white-warm;
+}
+
+.legal-placeholder {
+  display: grid;
+  gap: 1rem;
+  min-height: 180px;
+  align-content: center;
+}
+
+@media (max-width: 760px) {
+  .photo-modal-content {
+    grid-template-columns: 1fr;
+  }
+}

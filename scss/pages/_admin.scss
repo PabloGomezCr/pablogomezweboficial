@@ -1,0 +1,23 @@
+@use '../abstracts/variables' as v;
+
+.admin-page { padding-top: clamp(8rem, 14vw, 11rem); }
+.admin-intro { max-width: 760px; margin-bottom: 2.5rem; }
+.admin-intro p:last-child, .admin-notice { margin-top: 1rem; color: v.$gray; }
+.admin-panel-card { padding: clamp(1.25rem, 3vw, 2rem); border: 1px solid v.$border; border-radius: v.$radius-md; background: v.$black-soft; }
+.admin-login { max-width: 560px; }
+.admin-login form, .gallery-admin-form { display: grid; gap: 1.25rem; margin-top: 1.5rem; }
+.admin-login label, .gallery-admin-form label { display: grid; gap: .5rem; color: v.$white-warm; }
+.admin-login input, .gallery-admin-form input, .gallery-admin-form textarea { width: 100%; padding: .9rem 1rem; border: 1px solid v.$border; border-radius: v.$radius-sm; background: #0b0b0b; color: v.$white; }
+.admin-toolbar, .admin-form-actions, .admin-gallery-card, .admin-card-actions, .related-link { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.admin-workspace { display: grid; gap: 2rem; }
+.admin-workspace[hidden] { display: none; }
+.admin-gallery-list { display: grid; gap: .8rem; }
+.admin-gallery-card { padding: .75rem; border: 1px solid v.$border; border-radius: v.$radius-sm; background: v.$black-soft; }
+.admin-gallery-card img { width: 74px; height: 92px; border-radius: 9px; object-fit: cover; }
+.admin-gallery-card > div:first-of-type { flex: 1; }
+.danger { color: v.$error; }
+
+@media (max-width: 620px) {
+  .admin-toolbar, .admin-form-actions, .admin-gallery-card { align-items: flex-start; flex-wrap: wrap; }
+  .admin-card-actions { width: 100%; justify-content: flex-end; }
+}

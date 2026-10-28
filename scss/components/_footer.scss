@@ -1,0 +1,66 @@
+@use '../abstracts/variables' as v;
+
+.site-footer {
+  border-top: 1px solid v.$border;
+  padding: 2rem 4vw 2.6rem;
+  background: #060606;
+}
+
+.footer-grid {
+  width: min(94vw, 1320px);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-social {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: .45rem;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    color: v.$gray;
+    text-decoration: none;
+    font-size: .72rem;
+    white-space: nowrap;
+
+    img {
+      width: 26px;
+      height: 26px;
+    }
+  }
+}
+
+.footer-copy {
+  text-align: center;
+  color: v.$gray;
+  font-size: .82rem;
+}
+
+.footer-legal {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+
+  button {
+    padding: 0;
+    font-size: .78rem;
+  }
+}
+
+@media (max-width: 820px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-social,
+  .footer-legal {
+    justify-content: center;
+  }
+}

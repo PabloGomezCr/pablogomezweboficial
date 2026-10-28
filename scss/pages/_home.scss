@@ -1,0 +1,28 @@
+@use '../abstracts/variables' as v;
+
+.booking-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-block: clamp(2.5rem, 5vw, 4.5rem);
+  border-bottom: 1px solid v.$border;
+
+  h2 {
+    max-width: 760px;
+    margin-top: .35rem;
+    font-size: clamp(2rem, 5vw, 4.5rem);
+  }
+
+  .button {
+    flex: 0 0 auto;
+    min-width: 150px;
+  }
+}
+
+@media (max-width: 680px) {
+  .booking-cta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

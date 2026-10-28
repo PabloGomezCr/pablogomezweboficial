@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es" data-page="admin">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Administración de galería | Pablo Gómez</title>
+<meta name="description" content="Panel local de administración de la galería.">
+<meta name="social-api-endpoint" content="">
+<link rel="stylesheet" href="scss/main.scss">
+</head>
+<body>
+<header class="site-header"></header>
+
+<main class="admin-page section-shell">
+  <section class="admin-intro">
+    <p class="eyebrow">Área privada</p>
+    <h1>Administrar galería</h1>
+    <p>Agrega, edita o elimina fotografías que se mostrarán en la galería de este navegador.</p>
+  </section>
+
+  <section class="admin-login admin-panel-card" id="admin-login">
+    <h2>Iniciar sesión</h2>
+    <form id="admin-login-form">
+      <label>Clave de administrador
+        <input name="password" type="password" autocomplete="current-password" required>
+      </label>
+      <button class="button button-primary" type="submit">Ingresar</button>
+      <p id="login-status" class="form-status" aria-live="polite"></p>
+    </form>
+    <p class="admin-notice">Acceso demostrativo local. Clave inicial: <code>PG2026</code>.</p>
+  </section>
+
+  <section class="admin-workspace" id="admin-panel" hidden>
+    <div class="admin-toolbar">
+      <div><p class="eyebrow">Sesión activa</p><h2>Contenido de galería</h2></div>
+      <button class="text-button" id="admin-logout" type="button">Cerrar sesión</button>
+    </div>
+
+    <form class="gallery-admin-form admin-panel-card" id="gallery-admin-form">
+      <input name="id" type="hidden">
+      <input name="currentSrc" type="hidden">
+      <div class="form-grid">
+        <label>Fotografía
+          <input name="image" type="file" accept="image/jpeg,image/png,image/webp,image/avif">
+        </label>
+        <label>Texto alternativo
+          <input name="alt" type="text" required placeholder="Describe visualmente la fotografía">
+        </label>
+        <label>Fotógrafo
+          <input name="photographer" type="text" required>
+        </label>
+        <label>Lugar
+          <input name="location" type="text" required>
+        </label>
+      </div>
+      <label>Descripción
+        <textarea name="description" rows="4" required></textarea>
+      </label>
+      <div class="admin-form-actions">
+        <button class="button button-primary" type="submit">Guardar fotografía</button>
+        <button class="text-button" id="admin-cancel" type="button">Limpiar</button>
+        <p id="admin-status" class="form-status" aria-live="polite"></p>
+      </div>
+    </form>
+
+    <div class="admin-gallery-list" id="admin-gallery-list"></div>
+  </section>
+</main>
+
+<footer class="site-footer"></footer>
+<a class="floating-contact" href="https://wa.me/50664774940" target="_blank" rel="noopener noreferrer" aria-label="Contáctame por WhatsApp"></a>
+<dialog class="site-modal" id="site-modal" aria-labelledby="modal-title"><div class="modal-shell"><div class="modal-head"><h2 id="modal-title">Detalle</h2><button id="modal-close" class="icon-button" type="button" aria-label="Cerrar modal">×</button></div><div id="modal-body" class="modal-body"></div></div></dialog>
+<script type="module" src="js/admin.js"></script>
+</body>
+</html>

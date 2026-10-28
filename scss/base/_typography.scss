@@ -1,0 +1,41 @@
+@use '../abstracts/variables' as v;
+
+body {
+  font-family: v.$font-body;
+  color: v.$white;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: v.$font-display;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+
+h1 {
+  font-size: clamp(3rem, 8vw, 7.5rem);
+  line-height: .92;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 4.5rem);
+  line-height: 1;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
+}
+
+.eyebrow {
+  color: v.$gold-light;
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.muted {
+  color: v.$gray;
+}

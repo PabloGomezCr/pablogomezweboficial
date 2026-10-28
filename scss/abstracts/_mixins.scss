@@ -1,0 +1,16 @@
+@mixin glass {
+  background: rgba(14, 14, 14, 0.64);
+  border: 1px solid rgba(248, 248, 246, 0.12);
+  backdrop-filter: blur(22px) saturate(145%);
+  -webkit-backdrop-filter: blur(22px) saturate(145%);
+}
+
+@mixin focus-ring {
+  outline: 2px solid #e0c78f;
+  outline-offset: 4px;
+}
+
+@mixin container {
+  width: min(92vw, 1240px);
+  margin-inline: auto;
+}

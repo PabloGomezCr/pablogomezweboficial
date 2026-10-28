@@ -1,0 +1,20 @@
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Sass / mapas
+*.css.map
+.sass-cache/
+
+# Dependencias opcionales
+node_modules/
+
+# Salida de producción
+build/
+
+# Logs
+*.log
