@@ -1,10 +1,9 @@
 import { storage } from '../modules/storage.js';
 
-const DEMO_DATA = {
-  instagram: { followers: 12500 },
-  tiktok: { followers: 8900 },
-  updatedAt: new Date().toISOString(),
-  source: 'demo'
+const MANUAL_DATA = {
+  instagram: { followers: 1994 },
+  tiktok: { followers: 1362 },
+  source: 'manual'
 };
 
 function getEndpoint() {
@@ -18,6 +17,7 @@ function isValidPayload(payload) {
 
 export async function getSocialMetrics() {
   const endpoint = getEndpoint();
+  if (!endpoint) return MANUAL_DATA;
 
   if (endpoint) {
     const controller = new AbortController();
@@ -51,5 +51,7 @@ export async function getSocialMetrics() {
   }
 
   const cached = storage.get('social_cache', null);
-  return isValidPayload(cached) ? { ...cached, source: 'cache' } : DEMO_DATA;
+  return cached?.source === 'api' && isValidPayload(cached)
+    ? { ...cached, source: 'cache' }
+    : MANUAL_DATA;
 }

@@ -8,9 +8,8 @@ import { getSocialMetrics } from './services/social-api.js';
 import { initSharedComponents } from './components/shared-components.js';
 
 function formatFollowers(value) {
-  return new Intl.NumberFormat('es-CR', {
-    notation: 'compact',
-    maximumFractionDigits: 1
+  return new Intl.NumberFormat('de-DE', {
+    maximumFractionDigits: 0
   }).format(value);
 }
 
@@ -28,6 +27,11 @@ async function initSocialMetrics() {
   instagram.textContent = formatFollowers(data.instagram.followers);
   tiktok.textContent = formatFollowers(data.tiktok.followers);
 
+  if (data.source === 'manual') {
+    status.textContent = '';
+    return;
+  }
+
   const updated = new Intl.DateTimeFormat('es-CR', {
     dateStyle: 'medium',
     timeStyle: 'short'
@@ -35,9 +39,7 @@ async function initSocialMetrics() {
 
   const sourceLabel = data.source === 'api'
     ? 'Datos obtenidos desde endpoint seguro'
-    : data.source === 'cache'
-      ? 'Datos guardados en caché local'
-      : 'Datos de demostración';
+    : 'Datos guardados en caché local';
 
   status.textContent = `${sourceLabel} · Última actualización: ${updated}`;
 }
