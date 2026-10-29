@@ -1,544 +1,193 @@
 # Pablo Gómez | Sitio web oficial — Frontend Portfolio Project
 
-**ES:** Sitio web multipágina para la presencia digital de un artista musical, construido con HTML5, SCSS, JavaScript modular y Vite. Incluye biografía, eventos, galería y componentes interactivos.
+**ES:** Proyecto de portfolio frontend para la presencia digital de un artista musical. Sitio multipágina con biografía, agenda, galería y componentes compartidos, construido con HTML, SCSS, JavaScript modular y Vite.
 
-**EN:** Multi-page website for a music artist's digital presence, built with semantic HTML, modular SCSS, vanilla JavaScript and Vite. Includes biography, events, gallery and interactive components.
+**EN:** Frontend portfolio project for a music artist. A multi-page website with a biography, event schedule, gallery and shared components, built with HTML, SCSS, modular JavaScript and Vite.
 
-**Estado / Status:** Prototipo frontend en desarrollo; no publicado. Los eventos, métricas sociales y las reservas son demostraciones. / Frontend prototype in development, not deployed. Events, social metrics and booking are demo-only.
+**Estado / Status:** Frontend sin backend. La agenda contiene eventos reales cargados manualmente; las métricas también se mantienen a mano. Las reservas y la administración de galería funcionan únicamente en el navegador. / Frontend without a backend. Real events and follower counts are maintained manually. Booking and gallery administration only store data in the browser.
 
-**Tecnologías / Stack:** `HTML5` · `SCSS` · `JavaScript (ES Modules)` · `Vite` · `LocalStorage`
+[Código fuente / Source code](https://github.com/PabloGomezCr/pablogomezweboficial)
 
-**[Código fuente / Source code](https://github.com/PabloGomezCr/pablogomezweboficial)**
+## Empezar / Quick start
 
-## Inicio rápido / Quick start
+Necesitás Node.js y npm. La versión de Vite instalada requiere **Node.js 20.19+ dentro de la rama 20, o 22.12+** (`^20.19.0 || >=22.12.0`). El proyecto no fija una versión de Node propia. Git es necesario si vas a clonar el repositorio.
 
 ```bash
 git clone https://github.com/PabloGomezCr/pablogomezweboficial.git
 cd pablogomezweboficial
-npm install
+npm ci
 npm run dev
 ```
 
-El servidor de desarrollo mostrará una dirección local (normalmente `http://localhost:5173`). Para generar una versión de compilación local: `npm run build`.
+Ejecutá los comandos en la carpeta que contiene `package.json`. `npm ci` instala las versiones del `package-lock.json`; usá `npm install` cuando quieras actualizar dependencias y su archivo de bloqueo.
 
-## Descripción detallada
+Abrí la dirección que indique Vite, normalmente `http://localhost:5173/`. Mantené la terminal abierta mientras trabajás y detené el servidor con `Ctrl+C`. Si el puerto está ocupado, Vite puede elegir otro: revisá la dirección mostrada antes de abrir un segundo servidor.
 
-Sitio web estático multipágina para la presencia digital oficial de **Pablo Gómez**. La propuesta combina una estética editorial premium en negro, blanco y dorado con una experiencia moderna, responsive y accesible.
+Los HTML enlazan `scss/main.scss` y usan módulos JavaScript. Abrilos mediante Vite: abrir un archivo directamente o usar Live Server no realiza esta compilación de SCSS.
 
-El proyecto utiliza únicamente cuatro páginas HTML:
+**EN:** Install a compatible Node.js version, run the commands above from the repository root, then open the URL printed by Vite. Keep the terminal running while editing. Use Vite rather than opening the HTML files directly.
 
-- `index.html`
-- `biografia.html`
-- `eventos.html`
-- `galeria.html`
+| Comando | Para qué sirve |
+| --- | --- |
+| `npm run dev` | Desarrollo con actualización de HTML, JavaScript y SCSS. |
+| `npm run build` | Genera la versión optimizada en `build/`. No publica el sitio. |
+| `npm run preview` | Sirve el último build para revisarlo localmente; abrí la URL indicada. No recompila cambios. |
 
-## Objetivo
-
-Crear una base profesional para un artista musical que pueda crecer posteriormente con contenido real, fotografías, videos, eventos, enlaces sociales, analítica, backend y servicios oficiales.
-
-El proyecto actual es un **prototipo frontend listo para personalizar**.
-
-## Tecnologías
-
-- HTML5 semántico.
-- SCSS modular.
-- CSS compilado por Vite mediante Dart Sass.
-- JavaScript vanilla con ES Modules.
-- LocalStorage.
-- Git.
-- Markdown.
-
-No utiliza React, Vue, Angular, jQuery, Bootstrap ni Tailwind.
+Para revisar la versión compilada, ejecutá primero `npm run build` y después `npm run preview`. Repetí el build si editás fuentes. Las únicas dependencias directas declaradas son Vite y Sass, ambas de desarrollo; no hay framework de interfaz ni backend.
 
 ## Páginas
 
-### Inicio
+| Archivo | Contenido |
+| --- | --- |
+| [index.html](index.html) | Portada, seguidores de Instagram/TikTok y carrusel de videos en vivo. |
+| [biografia.html](biografia.html) | Biografía en tres capítulos con imágenes y textos editables. |
+| [eventos.html](eventos.html) | Agenda con filtros, páginas numeradas y formulario de booking local. |
+| [galeria.html](galeria.html) | Fotografías y sus datos, con apertura en modal. |
+| [admin.html](admin.html) | Panel de demostración para editar la galería en este navegador. |
 
-`index.html`
+Las cuatro páginas públicas comparten navegación, buscador, footer, contacto flotante y modales legales. El panel administrativo también inicializa los componentes compartidos.
 
-Incluye:
-
-- Navbar flotante tipo isla dinámica.
-- Buscador global.
-- Hero con video local de placeholder.
-- Métricas sociales con fallback.
-- Carrusel de videos en vivo.
-- Modal de video con transición inspirada en un efecto Genie.
-- Footer global.
-
-### Biografía
-
-`biografia.html`
-
-Contiene tres bloques editables:
-
-1. **EL INICIO**
-2. **EL PROCESO**
-3. **PABLO GÓMEZ**
-
-Cada bloque utiliza una imagen vertical 9:16 y texto placeholder para reemplazar desde Visual Studio Code.
-
-### Eventos
-
-`eventos.html`
-
-Incluye:
-
-- Eventos de demostración.
-- Estados automáticos según fecha.
-- Filtros: Hoy, Esta semana, Este mes, Próximos, Pasados y Todos.
-- Destaque automático del evento más próximo.
-- Formulario de booking.
-- Validación de fechas pasadas y ocupadas.
-- Persistencia demo mediante LocalStorage.
-
-### Galería
-
-`galeria.html`
-
-Incluye:
-
-- Tres cards por fila en escritorio.
-- Dos cards en tablet.
-- Una card en móvil.
-- Imagen vertical 9:16.
-- Descripción.
-- Fotógrafo.
-- Lugar.
-- Hover con destello de 0.3 segundos.
-- Modal individual de fotografía.
-
-## Estructura
+## Mapa del código
 
 ```text
-pablo-gomez-oficial/
-├── index.html
-├── biografia.html
-├── eventos.html
-├── galeria.html
-├── css/
-│   └── styles.css
-├── scss/
-│   ├── main.scss
-│   ├── abstracts/
-│   │   ├── _variables.scss
-│   │   ├── _mixins.scss
-│   │   └── _functions.scss
-│   ├── base/
-│   │   ├── _reset.scss
-│   │   ├── _typography.scss
-│   │   └── _global.scss
-│   ├── components/
-│   │   ├── _navbar.scss
-│   │   ├── _buttons.scss
-│   │   ├── _cards.scss
-│   │   ├── _modal.scss
-│   │   ├── _search.scss
-│   │   ├── _carousel.scss
-│   │   └── _footer.scss
-│   ├── layout/
-│   │   ├── _header.scss
-│   │   ├── _hero.scss
-│   │   ├── _grid.scss
-│   │   └── _sections.scss
-│   └── pages/
-│       ├── _home.scss
-│       ├── _biografia.scss
-│       ├── _eventos.scss
-│       └── _galeria.scss
+pablogomezweboficial/
+├── index.html, biografia.html, eventos.html, galeria.html, admin.html
 ├── js/
-│   ├── app.js
+│   ├── app.js                     # Entrada de las páginas públicas
+│   ├── admin.js                   # Entrada del panel local
+│   ├── components/
+│   │   └── shared-components.js    # Navegación, footer, contacto y textos legales
 │   ├── modules/
-│   │   ├── navbar.js
-│   │   ├── search.js
-│   │   ├── carousel.js
-│   │   ├── modal.js
-│   │   ├── events.js
-│   │   ├── gallery.js
-│   │   └── storage.js
-│   └── services/
-│       └── social-api.js
-├── assets/
-│   ├── images/
-│   │   ├── hero/
-│   │   ├── biography/
-│   │   ├── gallery/
-│   │   ├── events/
-│   │   └── placeholders/
-│   ├── videos/
-│   │   ├── hero/
-│   │   └── live/
-│   ├── icons/
-│   └── fonts/
-├── robots.txt
-├── sitemap.xml
-├── README.md
-└── .gitignore
+│   │   ├── events.js              # Datos de agenda, filtros, páginas y booking
+│   │   ├── gallery.js             # Datos y tarjetas de galería
+│   │   ├── gallery-admin.js       # Edición local de fotografías
+│   │   ├── search.js              # Índice de búsqueda manual
+│   │   ├── navbar.js, carousel.js, modal.js
+│   │   └── storage.js             # Acceso a LocalStorage con prefijo pg_
+│   └── services/social-api.js     # Seguidores manuales y conexión opcional a API
+├── scss/
+│   ├── main.scss                 # Importa todos los estilos
+│   ├── abstracts/                # Variables, funciones y mixins
+│   ├── base/                     # Reset, tipografía y estilos generales
+│   ├── components/               # Footer, botones, navbar, tarjetas, modales…
+│   ├── layout/                   # Distribución, portada y secciones
+│   └── pages/                    # Ajustes de cada página, incluido admin
+├── assets/                       # Imágenes, videos, iconos y otros recursos
+├── css/styles.css                # Copia antigua; los HTML no la cargan
+├── vite.config.js                # Entradas HTML y salida de compilación
+├── package.json, package-lock.json
+├── robots.txt, sitemap.xml
+└── build/                        # Salida generada e ignorada por Git
 ```
 
-## Instalación
+### Cómo arranca la interfaz
 
-Para desarrollo y compilación de producción se utiliza Vite.
-
-1. Descarga o clona el proyecto.
-2. Ejecuta `npm install` para instalar las dependencias en `node_modules`.
-3. Ejecuta `npm run dev` para iniciar el servidor local con actualización en caliente.
-
-Los cambios en HTML, JavaScript y los archivos dentro de `scss/` se reflejan
-automáticamente en el navegador. Para desarrollar, abre siempre la dirección que
-muestra Vite (normalmente `http://localhost:5173`) y no los archivos de `build/`.
-
-Se recomienda utilizar servidor local porque JavaScript está organizado con **ES Modules**.
-
-## Ejecución
-
-Desde la carpeta del proyecto:
-
-```bash
-npm run dev
+```mermaid
+flowchart TD
+    A[HTML público y data-page] --> B[js/app.js: DOMContentLoaded]
+    B --> C[Componentes compartidos, navegación, buscador y modales]
+    B --> D[inicio: carrusel y métricas]
+    B --> E[eventos: agenda y booking]
+    B --> F[galeria: fotografías]
+    G[admin.html] --> H[js/admin.js y gallery-admin.js]
 ```
 
-Abre la URL que muestra la terminal (normalmente):
+`app.js` usa `data-page` del elemento `<html>` para elegir qué módulos iniciar. Biografía utiliza los componentes comunes y conserva su contenido en HTML. `admin.js` tiene su propia entrada para la edición local.
 
-```text
-http://localhost:5173
+`initSharedComponents()` reemplaza el contenido de la cabecera y el footer al iniciar. Para cambiar lo que ve el usuario, editá [shared-components.js](js/components/shared-components.js), no solamente la copia del footer en un HTML. Si cambia un enlace o contenido compartido, mantené también coherente el HTML de respaldo.
+
+## Dónde editar cada cosa
+
+### Agenda
+
+La fuente es el arreglo `events` en [js/modules/events.js](js/modules/events.js). Actualmente contiene **14 eventos reales de octubre y noviembre de 2026**; no se descargan desde una API ni se sustituyen por una agenda guardada en caché.
+
+Cada evento usa un `id` único, `title`, fecha `YYYY-MM-DD`, hora `HH:mm`, ciudad y, cuando se conoce, `venue`. Por ejemplo, este registro ya existe:
+
+```javascript
+{ id: 15, title: 'Jorcos', date: '2026-11-14', time: '22:00', venue: 'Jorcos', city: 'Puntarenas', status: 'available' }
 ```
 
-Mantén ese proceso activo mientras editas. Vite vigila los cambios y actualiza
-los estilos automáticamente. Los HTML fuente enlazan SCSS, por lo que abrirlos
-directamente o servirlos con Live Server o Python no compila sus estilos.
+Para eventos de día completo, usá `allDay: true` y omití `time`. Así está representada la fiesta privada del 29 de noviembre en San José, que muestra **Todo el día**. Si no se conoce el lugar, omití `venue`; no hace falta inventar uno. Un evento sin hora ni `allDay` muestra **Hora por confirmar**.
 
-## Build de producción
+La agenda:
 
-Genera la versión optimizada del sitio con:
+- Filtra por Hoy, Esta semana (lunes a domingo), Este mes, Próximos eventos, Eventos pasados y Todos.
+- Ordena por fecha y hora; los registros sin hora quedan después de los que tienen hora en la misma fecha.
+- Muestra hasta **cuatro tarjetas por página**, con botones numéricos y un conteo del total filtrado. Cambiar el filtro vuelve a la página 1.
+- Considera pasado un evento cuando termina su día, según la fecha local del navegador; **no** al llegar su hora de inicio.
+- Se actualiza al cambiar de día y al volver a la pestaña o ventana tras una suspensión. Conserva el filtro, ajusta los límites de paginación y no reinicia el formulario.
 
-```bash
-npm run build
-```
+Los estilos de tarjetas, filtros y paginación están en [scss/pages/_eventos.scss](scss/pages/_eventos.scss). El booking consulta el mismo arreglo para bloquear días ocupados: reserva el día completo aunque el evento tenga una hora concreta.
 
-El resultado listo para publicar queda en `build/`. Para revisarlo localmente:
+### Seguidores de redes sociales
 
-```bash
-npm run preview
-```
+En [js/services/social-api.js](js/services/social-api.js), `MANUAL_DATA` contiene los valores **1994 para Instagram** y **1362 para TikTok**. La portada muestra **1.994** y **1.362**, sin abreviar, con el formato definido en `formatFollowers()` de [js/app.js](js/app.js).
 
-## Compilación de SCSS
-
-Vite compila `scss/main.scss` con la dependencia `sass` tanto en desarrollo
-como al crear el build. Se utiliza este compilador para evitar el bloqueo
-reproducido con `sass-embedded` en esta instalación.
-
-Edita los archivos de `scss/`: `main.scss` importa los módulos de componentes,
-layouts y páginas. `npm run dev` incorpora el watch y la actualización en
-caliente; no hace falta ejecutar otro watch ni configurar pipes de Gulp.
-
-`css/styles.css` es una copia antigua que los HTML actuales no cargan.
-Modificarla no cambia el sitio. En producción, Vite genera y enlaza el CSS
-optimizado dentro de `build/assets/`.
-
-`npm run preview` sirve el último build y no recompila cambios: ejecuta
-`npm run build` otra vez para actualizarlo. Después de cambiar dependencias,
-detén el servidor anterior con `Ctrl+C` y vuelve a ejecutar `npm run dev`.
-
-## Recursos multimedia
-
-El proyecto incluye recursos locales de demostración generados específicamente como placeholders:
-
-- Hero poster.
-- Video placeholder para Hero.
-- Tres videos placeholder para Live Performances.
-- Tres imágenes verticales para Biografía.
-- Seis imágenes verticales para Galería.
-- Imagen placeholder para Eventos.
-- Iconos SVG locales.
-
-Reemplaza estos archivos conservando los mismos nombres o actualizando sus rutas en HTML/JavaScript.
-
-### Recomendaciones
-
-- Fotografías: WebP o AVIF.
-- Hero poster: 1600×900 o superior.
-- Biografía/Galería: relación 9:16.
-- Video Hero: MP4/WebM optimizado.
-- Videos en vivo: comprimir antes de producción.
-
-## LocalStorage
-
-Se utiliza únicamente donde aporta valor al prototipo.
-
-Claves generadas:
-
-```text
-pg_booking_requests
-pg_social_cache
-pg_search_history
-pg_event_preferences
-```
-
-### Importante
-
-El booking actual guarda información en el navegador del visitante.
-
-**No debe utilizarse así en producción para solicitudes reales.**
-
-Para producción debe conectarse a un backend seguro o servicio especializado.
-
-## API de redes sociales
-
-El archivo:
-
-```text
-js/services/social-api.js
-```
-
-está preparado para recibir datos desde un endpoint seguro.
-
-El HTML incluye:
+Para actualizar estas cifras, editá `MANUAL_DATA` y los valores de respaldo en `index.html`. Mientras la etiqueta siguiente esté vacía, los valores manuales tienen prioridad y no se sobrescriben con una caché anterior:
 
 ```html
 <meta name="social-api-endpoint" content="">
 ```
 
-Mientras ese campo esté vacío, el sistema utiliza datos demo o caché local.
+La conexión a una API es opcional y **no está configurada**. Si se configura, el servicio espera JSON con `instagram.followers` y `tiktok.followers` numéricos y un `updatedAt` opcional. Intenta consultar el endpoint durante 4,5 segundos; si falla, utiliza una caché válida procedente de la API o los valores manuales. No hay actualización periódica de seguidores. Cualquier credencial privada necesaria para consultar redes debe permanecer en un backend, no en el JavaScript del navegador.
 
-### Formato esperado del endpoint
+### Textos, fotos, videos y búsqueda
 
-```json
-{
-  "instagram": {
-    "followers": 10000
-  },
-  "tiktok": {
-    "followers": 20000
-  },
-  "updatedAt": "2026-08-13T12:00:00Z"
-}
-```
+| Cambio | Fuente |
+| --- | --- |
+| Portada, videos y textos de inicio | `index.html` y archivos referenciados en `assets/`. |
+| Biografía e imágenes de capítulos | `biografia.html`. |
+| Fotografías y metadatos de galería | Arreglo `galleryItems` en `js/modules/gallery.js`. |
+| Redes, navegación, contacto y contenido legal compartido | `js/components/shared-components.js`. |
+| Términos y enlaces del buscador | Arreglo `searchIndex` en `js/modules/search.js`. |
+| Colores, tipografías y medidas comunes | `scss/abstracts/_variables.scss`. |
+| Distribución y hover/foco del footer | `scss/components/_footer.scss`. |
 
-## Seguridad de credenciales
+El buscador recorre su índice manual; no indexa automáticamente todos los textos ni los nuevos eventos. Actualizalo si agregás secciones que deban encontrarse.
 
-Nunca coloques tokens privados de Instagram, TikTok u otros servicios directamente en:
+### Estilos
 
-```javascript
-const token = "TOKEN_PRIVADO";
-```
-
-El navegador expone el JavaScript al visitante.
-
-Si una API requiere:
-
-- Client secret.
-- Access token privado.
-- API secret.
-
-utiliza:
-
-- Backend.
-- Serverless Function.
-- Proxy seguro.
-
-El frontend debe consultar únicamente un endpoint público controlado por tu propia aplicación.
+Editá `scss/`; Vite compila [scss/main.scss](scss/main.scss) mediante Sass durante desarrollo y build. No necesitás otro proceso de compilación. `css/styles.css` es una copia antigua: editarla no cambia las páginas actuales.
 
-## Responsive
+El footer permite saltos de enlaces completos, conserva juntos icono y nombre y adapta las columnas a móvil. Sus iconos SVG se importan con `?raw` en el componente compartido y utilizan `currentColor` en las figuras para cambiar a dorado junto con el texto en hover o foco de teclado, sin recolorear su fondo.
 
-La interfaz está preparada para:
+`vite.config.js` compila las cinco entradas HTML en `build/` y copia los iconos, las imágenes de galería, `robots.txt` y `sitemap.xml` necesarios. No edites `build/`: el siguiente build lo vuelve a generar.
 
-- 320 px.
-- 375 px.
-- 430 px.
-- 768 px.
-- 1024 px.
-- 1440 px.
-- Pantallas superiores.
+## Qué se guarda en el navegador
 
-Incluye:
+| Clave | Uso |
+| --- | --- |
+| `pg_booking_requests` | Solicitudes del formulario de booking. |
+| `pg_event_preferences` | Último filtro de agenda elegido. |
+| `pg_social_cache` | Respuesta de la API opcional de seguidores. |
+| `pg_search_history` | Historial local de términos de búsqueda. |
+| `pg_gallery_items` | Galería editada desde el panel local; tiene prioridad sobre el arreglo fuente. |
 
-- Navbar adaptable.
-- Grid responsive.
-- Carrusel horizontal.
-- Filtros de eventos desplazables en móvil.
-- Galería 3/2/1.
-- Footer apilado.
-- Formularios responsive.
+Estas claves usan LocalStorage y son propias del navegador y del origen (protocolo, host y puerto). Cambiar de puerto o de navegador no comparte estos datos. Borrar una clave elimina sus datos locales; guardá antes lo que necesités conservar. Para volver a ver el arreglo de fotografías del código, eliminá únicamente `pg_gallery_items` desde las herramientas del navegador.
 
-## Accesibilidad
+El panel `admin.html` guarda además el acceso de demostración en `sessionStorage`, con la clave `pg_admin_authenticated`. Su acceso está definido en el código y **no es autenticación segura**. Permite agregar, editar o quitar fotos localmente; rechaza archivos mayores de 1.500.000 bytes y puede alcanzar el límite de almacenamiento del navegador. Los cambios no modifican los archivos del repositorio ni la galería de otros visitantes.
 
-Se incorporan:
+El booking valida campos y fechas y guarda la solicitud localmente. **No envía correos, no contacta al artista y no confirma reservas reales.** No hay backend, sincronización entre usuarios ni panel para gestionar solicitudes.
 
-- HTML semántico.
-- Un H1 por página.
-- `lang="es"`.
-- Estados `focus-visible`.
-- Navegación mediante teclado.
-- Escape para cerrar modales y buscador.
-- Alt text.
-- Labels de formularios.
-- Contraste elevado.
-- `prefers-reduced-motion`.
+## Comprobar un cambio
 
-## SEO
+1. Ejecutá `npm run dev` y visitá la página afectada.
+2. En agenda, revisá filtros y botones numéricos, el orden de eventos y el total. Una prueba de cambio de fecha debe conservar el filtro y los campos escritos en booking.
+3. Revisá navegación, galería y footer en escritorio y móvil. Probá también el foco con la tecla Tab.
+4. Ejecutá `npm run build`; después, `npm run preview` para comprobar los archivos compilados.
 
-Cada página incluye:
+No hay script `npm test`, linter ni suite automatizada de pruebas configurados. Que el build termine correctamente confirma la compilación, pero no sustituye la revisión funcional y visual.
 
-- Title único.
-- Meta description específica.
-- Canonical placeholder.
-- Open Graph.
-- Twitter Card.
-- Jerarquía de encabezados.
-- Enlazado interno.
-- Imágenes con dimensiones y alt text.
-- JSON-LD básico verificable.
-- `robots.txt`.
-- `sitemap.xml`.
+Si no ves una edición, comprobá la URL y la carpeta desde la que arrancaste Vite. `preview` sirve el último build, y la galería local puede ocultar cambios del arreglo fuente. Si el servidor sigue sirviendo JavaScript anterior, detenelo con `Ctrl+C` y reinicialo en la carpeta correcta.
 
-### Datos estructurados
+## Pendientes y límites del proyecto
 
-Inicio incluye:
+- Los metadatos canonical, Open Graph, JSON-LD, `robots.txt` y `sitemap.xml` todavía contienen `TU-DOMINIO.com`. Reemplazalos por el dominio definitivo antes de publicar.
+- La galería conserva descripciones y textos alternativos provisionales, y una atribución de fotógrafo tiene un corchete inicial pendiente de corregir. Revisá `galleryItems`; la biografía ya contiene texto y no debe tratarse en bloque como placeholder.
+- Los footers HTML de respaldo conservan etiquetas y títulos provisionales de enlaces. El componente JavaScript los reemplaza al cargar; conviene alinear ambas fuentes.
+- No hay marcado estructurado `Event` para la agenda ni integración automática con calendarios externos.
+- Seguidores y agenda requieren mantenimiento manual. Booking y administración de galería necesitan backend y autenticación real si se van a usar como servicios compartidos.
+- Este README no define un alojamiento ni un proceso de despliegue. Generar `build/` no publica el sitio.
 
-- `Person`
-- `WebSite`
-
-Las páginas secundarias incluyen:
-
-- `BreadcrumbList`
-
-No se generó `Event` estructurado para eventos demo porque no deben publicarse como eventos reales.
-
-## SEO antes de producción
-
-- [ ] Configurar el dominio definitivo.
-- [ ] Reemplazar todos los valores `TU-DOMINIO.com`.
-- [ ] Actualizar canonical de cada página.
-- [ ] Actualizar Open Graph con URLs reales.
-- [ ] Generar sitemap definitivo.
-- [ ] Registrar el sitio en Google Search Console.
-- [ ] Enviar el sitemap.
-- [ ] Verificar indexación.
-- [ ] Sustituir todos los placeholders por contenido original.
-- [ ] Optimizar imágenes a WebP/AVIF.
-- [ ] Comprimir videos.
-- [ ] Revisar Core Web Vitals.
-- [ ] Validar datos estructurados.
-- [ ] Añadir eventos reales y verificables.
-- [ ] Mantener agenda y biografía actualizadas.
-- [ ] Crear contenido original útil para búsquedas relacionadas con Pablo Gómez.
-- [ ] Obtener menciones y backlinks legítimos de medios, venues y organizaciones relevantes.
-- [ ] Evitar keyword stuffing.
-- [ ] Revisar accesibilidad antes de publicar.
-
-Ninguna implementación puede garantizar el primer lugar en Google. El posicionamiento depende también de contenido, autoridad, competencia, comportamiento de búsqueda y mantenimiento.
-
-## Performance
-
-La estructura está pensada para reducir problemas de:
-
-- Largest Contentful Paint.
-- Interaction to Next Paint.
-- Cumulative Layout Shift.
-
-Antes de producción:
-
-- Reduce el peso del video Hero.
-- Declara dimensiones de imágenes.
-- Evita cargar multimedia innecesaria.
-- Mantén JavaScript ligero.
-- Utiliza caché del servidor/CDN.
-- Mide con Lighthouse y PageSpeed Insights.
-
-## Personalización
-
-### Biografía
-
-Edita directamente:
-
-```text
-biografia.html
-```
-
-Busca:
-
-```text
-[AGREGAR AQUÍ ...]
-```
-
-### Eventos
-
-Edita:
-
-```text
-js/modules/events.js
-```
-
-Reemplaza los eventos demo por datos reales.
-
-### Galería
-
-Edita:
-
-```text
-js/modules/gallery.js
-```
-
-Actualiza:
-
-- `src`
-- `alt`
-- `description`
-- `photographer`
-- `location`
-
-También puedes usar `admin.html` para agregar, editar y eliminar fotografías localmente. La clave demostrativa inicial es `PG2026`. Los cambios se guardan en el navegador y las imágenes deben pesar menos de 1.5 MB.
-
-> El panel local sirve para prototipado, pero no sustituye autenticación ni almacenamiento seguros. Para producción, conecta el CRUD a un backend con usuarios, sesiones y permisos administrados en el servidor.
-
-### Redes sociales
-
-Revisá las referencias a WhatsApp en las páginas HTML y configurá únicamente el contacto público que desees mostrar. No incluyas números privados en archivos del repositorio.
-
-### Buscador
-
-Edita el índice dentro de:
-
-```text
-js/modules/search.js
-```
-
-## Git
-
-Inicio recomendado:
-
-```bash
-git init
-git add .
-git commit -m "chore: crear estructura inicial del sitio oficial"
-```
-
-Ejemplos de ramas:
-
-```text
-feat-home
-feat-biografia
-feat-eventos
-feat-galeria
-feat-seo
-```
-
-Ejemplos de Conventional Commits:
-
-```text
-feat(home): agregar hero y carrusel de videos
-feat(eventos): implementar filtros y booking
-feat(galeria): agregar modal de fotografías
-docs: documentar configuración SEO
-fix(navbar): corregir navegación móvil
-```
-
-## Limitaciones actuales
-
-- Las métricas sociales son demo hasta configurar un endpoint seguro.
-- El booking utiliza LocalStorage y no envía solicitudes reales.
-- Las fotografías, biografía, redes y datos de eventos son placeholders.
-- Canonical, Open Graph, sitemap y dominio deben actualizarse antes de producción.
-- Los eventos de demostración no deben publicarse como datos reales.
-- No existe backend.
+**EN:** The schedule contains real, manually entered events. Follower counts are manual too. Booking does not send requests, and the gallery admin is a browser-only prototype. Domain metadata and some gallery descriptions still need review. Build output is local; no deployment procedure or automated test suite is configured here.
