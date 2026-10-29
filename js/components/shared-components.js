@@ -1,3 +1,17 @@
+import whatsappIcon from '../../assets/icons/whatsapp.svg?raw';
+import facebookIcon from '../../assets/icons/facebook.svg?raw';
+import instagramIcon from '../../assets/icons/instagram.svg?raw';
+import tiktokIcon from '../../assets/icons/tiktok.svg?raw';
+import youtubeIcon from '../../assets/icons/youtube.svg?raw';
+
+const footerIcons = {
+  'whatsapp.svg': whatsappIcon,
+  'facebook.svg': facebookIcon,
+  'instagram.svg': instagramIcon,
+  'tiktok.svg': tiktokIcon,
+  'youtube.svg': youtubeIcon
+};
+
 const navItems = [
   ['inicio', 'Inicio', 'index.html'],
   ['biografia', 'Biografía', 'biografia.html'],
@@ -36,7 +50,12 @@ function footerTemplate() {
     ['https://www.tiktok.com/@palolo_gomez?is_from_webapp=1&sender_device=pc', 'TikTok', 'tiktok.svg'],
     ['https://www.youtube.com/@Palolo_Gomez', 'YouTube', 'youtube.svg']
   ];
-  const socialLinks = socials.map(([href, label, icon]) => `<a href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${label}"><img src="assets/icons/${icon}" alt="" width="28" height="28"><span>${label}</span></a>`).join('');
+  const socialLinks = socials.map(([href, label, icon]) => {
+    const svg = footerIcons[icon]
+      .replace('<svg ', '<svg aria-hidden="true" focusable="false" ')
+      .replaceAll('#c8a96b', 'currentColor');
+    return `<a href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${label}">${svg}<span>${label}</span></a>`;
+  }).join('');
 
   return `<div class="footer-grid">
     <div class="footer-social" aria-label="Redes sociales">${socialLinks}</div>

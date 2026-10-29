@@ -2,36 +2,64 @@
 
 .site-footer {
   border-top: 1px solid v.$border;
-  padding: 2rem 4vw 2.6rem;
+  padding: 2rem 4vw 6rem;
   background: #060606;
 }
 
 .footer-grid {
-  width: min(94vw, 1320px);
+  width: min(100%, 1320px);
   margin-inline: auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1fr);
   align-items: center;
   gap: 1.5rem;
 }
 
 .footer-social {
   display: flex;
-  flex-wrap: nowrap;
-  gap: .45rem;
+  flex-wrap: wrap;
+  gap: .75rem 1rem;
+  min-width: 0;
 
   a {
     display: inline-flex;
+    flex: 0 0 auto;
     align-items: center;
     gap: .4rem;
     color: v.$gray;
     text-decoration: none;
     font-size: .72rem;
     white-space: nowrap;
+    transition: color .2s v.$ease;
 
-    img {
+    img,
+    svg {
       width: 26px;
       height: 26px;
+      flex: 0 0 26px;
+    }
+
+    svg {
+      color: v.$gold;
+      transition: color .2s v.$ease;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: v.$gold-light;
+
+      svg { color: inherit; }
+    }
+
+    &:focus-visible {
+      outline: 2px solid v.$gold;
+      outline-offset: 5px;
+      border-radius: 4px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      &,
+      svg { transition: none; }
     }
   }
 }
@@ -44,6 +72,7 @@
 
 .footer-legal {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
   gap: 1rem;
 
