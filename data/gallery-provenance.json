@@ -1,0 +1,222 @@
+{
+  "source": "Proyecto galeria: galeria.html e img/ (lectura, sin ejecutar código)",
+  "items": [
+    {
+      "file": "IMG_5917.JPG",
+      "photographer": "Carlos Trejos",
+      "location": "Estudio Trejos",
+      "sha256": "881c31627d8602a709f3353544061a6da6c5634bd935523f3ad7b08c6150ee71",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "IMG_1888.JPG",
+      "photographer": "Nicole Sancho",
+      "location": "Esparza",
+      "sha256": "4121a438c871ea92a495c5dee97ac09c87b14b583d50c06ba7c68b660bd49eef",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "IMG_4955.JPG",
+      "photographer": "Nicole Sancho",
+      "location": "Boulevard Gastronomico",
+      "sha256": "b064a81149f6032b0f5b613a2f1a0562ef21828643ea4b57005bef698e7cb06f",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "_DSC2548.jpg",
+      "photographer": "Nicole Sancho",
+      "location": "Boulevard Gastronomico",
+      "sha256": "608d4b4276626b33fb5e5800ea3e018d159fea4277d5526818f44f10a17b88af",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "_H4A9220 copia.jpg",
+      "photographer": "Mike",
+      "location": "Restaurante Sara's",
+      "sha256": "5adfc8c9220d8ef51ef743181f216266b24a0b061426be1ce10417f61dc5aeb6",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "_DSC8921.jpg",
+      "photographer": "Nicole Sancho",
+      "location": "Boulevard Gastronomico",
+      "sha256": "d7655d08fdc3485621418ff341cc6e5b349d4836700f0f2e4065a5bf6331028b",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "IMG_5916.JPG",
+      "photographer": "Carlos Trejos",
+      "location": "Estudio Trejos",
+      "sha256": "bc0dd4409534a3328b69173fb0956cfbb322c207de6215372f7d3fb2d3eca574",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "_DSC2558.jpg",
+      "photographer": "Nicole Sancho",
+      "location": "Playground Esparza",
+      "sha256": "0022f69a8d6892a092b9c587f46f92edb60548e03f1665b14a4416eb68c84d42",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "465086230_18289153402238712_5103149462025517681_n.jpg",
+      "photographer": "Vincent Bejarano",
+      "location": "Plaza La Isla, Zona Hotelera, Cancun",
+      "sha256": "3c20f0d0add7193adb9d351d789bea7a10ec1d714b86c725027cf626ba4875ae",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "501216027_24241850062089762_358390613383186362_n.jpg",
+      "photographer": "Mike",
+      "location": "PentHouse Hotel Puerto Azul",
+      "sha256": "43677ce47ed74b86115783c1c129b41fe52e635e67063980e0494f7172c3f4a9",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "469623304_18294214873238712_5853932323020931462_n.jpg",
+      "photographer": "PuertoTv",
+      "location": "Hotel Puntarenas Beach",
+      "sha256": "80f86155aaf48fd7e37f05cc1f0fe92ba04a84e378ac3a4363f1e0a680d6be13",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "485054348_9918347951533212_4950170884593285730_n.jpg",
+      "photographer": "Paulo",
+      "location": "Parque Marino, Festival La Perla Brilla",
+      "sha256": "cdc630c3f4994783785be40b88bb41729f98b83e11a7ecc54c0dbaf564448537",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "485897705_9938633702837970_8162075425091859955_n.jpg",
+      "photographer": "R K L",
+      "location": "Estudio R K L",
+      "sha256": "c70bb2cd0be5ebf904975c5b6e02b32239f75eb71c55a080a03a3c7c414ce51e",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "486111239_9962666253768048_6313999289939940419_n.jpg",
+      "photographer": "Fabian Mendez",
+      "location": "Inauguración Parque Mora y Cañas",
+      "sha256": "d235ea86382d70e0e3b5cda84cf16bacb0ee197caa158279841efb59a46116de",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "486690568_9981171541917519_9175246080367978587_n.jpg",
+      "photographer": "Nicole Sancho",
+      "location": "Tiki Gastro Pub",
+      "sha256": "a40b7d87f5672ec9b567d84e9932551fba508c0e3cfbbd7544a43ed1b858463e",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "487508441_10031131756921497_8613104519668448733_n.jpg",
+      "photographer": "Fabian Mendez",
+      "location": "Boulevard Gastronomico",
+      "sha256": "74d5a46c3468b80e4410231b90cb78165a0aa7c96efc7fa02eea97e485852623",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "490757259_23880574724883966_3772122820656771031_n.jpg",
+      "photographer": "Fabian Mendez",
+      "location": "Jueves De Faro",
+      "sha256": "b50cb05d672fb31f6a9b3ff27ec6e6756ca1b00a7c89f32adf4f1a34b2aa1ff2",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "490968885_10097046826996656_5889895849319828338_n.jpg",
+      "photographer": "Paulo",
+      "location": "Anfiteatro La Concha Acustica",
+      "sha256": "de8c326a6911daf492003bc10078cf2430429d5adb290e9bb09424eb37ab130f",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "491273710_23875860248688747_1780866156780955503_n.jpg",
+      "photographer": "Kevin Zuñiga",
+      "location": "Restaurante Barramar",
+      "sha256": "4b6427b608da9e3475e95cda3cddc85ecdf934ad1f4b23a8700f51032834d898",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "491453841_23873897728884999_8239466103659863387_n.jpg",
+      "photographer": "Nicole Sancho",
+      "location": "Concierto de los Hicsos",
+      "sha256": "3f10fb60b12a48b1d5b84de2d2bb1e9d92faae1243d533633d5479b12fe10506",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "492480327_23927450933529678_8801021472354474082_n.jpg",
+      "photographer": "Paulo",
+      "location": "Anfiteatro La Concha Acustica",
+      "sha256": "2c4a6d873f2dfe4f49eb9d7b232a3f300d0018bad0435bb13a80e4716182d0cb",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "493192684_23950602964547808_4832250298715901229_n.jpg",
+      "photographer": "Nicole Sancho",
+      "location": "Concierto \"El Alma Del Mar\"",
+      "sha256": "efa3ca709e8d1eb1534a9203c86b3d923a603ea2e2a40cbc213342e141c65f9e",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "493669318_23962920409982730_2067176512845344552_n.jpg",
+      "photographer": "Nicole Sancho",
+      "location": "Secret Location",
+      "sha256": "5740d6f694fd6d1d8d6e82c9e0cd71abba2d7cb2f2f5310275bc7459fa09d7fe",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "495130434_23996292159978888_5549088659657895666_n.jpg",
+      "photographer": "Nicole Sancho",
+      "location": "Inauguracion Carnavales de Puntarenas 2023",
+      "sha256": "51b7a61e8c0922bf5d5b84b35783cc063e30420bd3ee7e47a7d90cf9d2510bd9",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "496741617_24072871565654280_3727453309092064803_n.jpg",
+      "photographer": "Nicole Sancho",
+      "location": "Estudio Sancho",
+      "sha256": "d2687bc912e1d80a31b1481799a6448943c7fa08993f51924abca6c5b6d1d4e0",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "497459215_24094361886838581_5224877823508001464_n.jpg",
+      "photographer": "Nicole Sancho",
+      "location": "Restaurante Betos",
+      "sha256": "a5c699498fe3788b5b432a20ea09a7b68e7fddf3ebfce75da5d5baee57b1bdbc",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "497800866_24093637136911056_7817900019251389436_n.jpg",
+      "photographer": "Nicole Sancho",
+      "location": "Estudio Sancho",
+      "sha256": "0c8930bea5f4ec7941b842f1e4f7aa03cb19944fd919805ba54e34fb044bed30",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "IMG_0253.JPG",
+      "photographer": "Andrepreneur",
+      "location": "LK Sport Bar",
+      "sha256": "3d07ef0633aeab6d3f7d1cc7c0d681cfb41bf609283590b9b3869116d5b0ea2e",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "IMG_2257.JPG",
+      "photographer": "Carlos Salas",
+      "location": "Navarra Puntarenas",
+      "sha256": "cbe216d63d6a37672523f46874046d09b3b96ec1ae128757d93713f16ed07ccd",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "IMG_0980.JPG",
+      "photographer": "Mxxiel",
+      "location": "La Cocteleria",
+      "sha256": "a715bc4fc75e93c5285d6ca5c5248d9bfc2e8afae06479cfb976f209554878ed",
+      "alreadyPresentIdentical": true
+    },
+    {
+      "file": "a2beb7a3-8f8a-4ee8-a0c5-424473ee4324.JPG",
+      "photographer": "Mxxiel",
+      "location": "La Cocteleria",
+      "sha256": "0c7c84be3a404683923008b64a55b59be5286e8376df420b403b8dd2fb932133",
+      "alreadyPresentIdentical": true
+    }
+  ]
+}

@@ -43,11 +43,12 @@ function animateFromSource(shell, sourceElement) {
   );
 }
 
-export function openModal({ title, content, sourceElement = null }) {
+export function openModal({ title, content, sourceElement = null, hideTitle = false }) {
   const { dialog, title: titleNode, body } = getElements();
   if (!dialog || !titleNode || !body) return;
 
   titleNode.textContent = title;
+  titleNode.classList.toggle('sr-only', hideTitle);
   body.replaceChildren(content);
   document.body.classList.add('modal-open');
 
@@ -118,7 +119,7 @@ export function openVideoModal({ title, src, sourceElement, initialTime = 0 }) {
   video.focus();
 }
 
-export function openImageModal({ title, src, alt, description, photographer, location, sourceElement }) {
+export function openImageModal({ title, src, alt, photographer, location, sourceElement }) {
   const wrapper = document.createElement('div');
   wrapper.className = 'photo-modal-content';
 
@@ -131,9 +132,6 @@ export function openImageModal({ title, src, alt, description, photographer, loc
   const meta = document.createElement('div');
   meta.className = 'photo-modal-meta';
 
-  const descriptionNode = document.createElement('p');
-  descriptionNode.textContent = description;
-
   const photographerNode = document.createElement('p');
   photographerNode.innerHTML = '<strong>Fotógrafo:</strong> ';
   photographerNode.append(document.createTextNode(photographer));
@@ -142,10 +140,10 @@ export function openImageModal({ title, src, alt, description, photographer, loc
   locationNode.innerHTML = '<strong>Lugar:</strong> ';
   locationNode.append(document.createTextNode(location));
 
-  meta.append(descriptionNode, photographerNode, locationNode);
+  meta.append(photographerNode, locationNode);
   wrapper.append(image, meta);
 
-  openModal({ title, content: wrapper, sourceElement });
+  openModal({ title, content: wrapper, sourceElement, hideTitle: true });
 }
 
 export function initModal() {

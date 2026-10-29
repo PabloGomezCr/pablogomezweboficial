@@ -1,0 +1,65 @@
+[
+  {
+    "src": "assets/images/gallery/493669318_23962920409982730_2067176512845344552_n.jpg",
+    "alt": "Placeholder para fotografía de galería 1 de Pablo Gómez",
+    "description": "[AGREGAR DESCRIPCIÓN DE LA FOTOGRAFÍA]",
+    "photographer": "NICCO FOTOGRAFIA",
+    "location": "MOTEL PARIS PRIMERAVERA"
+  },
+  {
+    "src": "assets/images/gallery/_DSC2548.jpg",
+    "alt": "Placeholder para fotografía de galería 2 de Pablo Gómez",
+    "description": "[AGREGAR DESCRIPCIÓN DE LA FOTOGRAFÍA]",
+    "photographer": "NICCO FOTOGRAFIA",
+    "location": "ESPARZA PLAYGROUND"
+  },
+  {
+    "src": "assets/images/gallery/_DSC2558.jpg",
+    "alt": "Placeholder para fotografía de galería 3 de Pablo Gómez",
+    "description": "[AGREGAR DESCRIPCIÓN DE LA FOTOGRAFÍA]",
+    "photographer": "NICCO FOTOGRAFIA",
+    "location": "ESPARZA PLAYGROUND"
+  },
+  {
+    "src": "assets/images/gallery/_DSC8921.jpg",
+    "alt": "Placeholder para fotografía de galería 4 de Pablo Gómez",
+    "description": "[AGREGAR DESCRIPCIÓN DE LA FOTOGRAFÍA]",
+    "photographer": "[NICCO FOTOGRAFIA",
+    "location": "BOULEVARD GASTRONOMICO"
+  },
+  {
+    "src": "assets/images/gallery/_H4A9220 copia.jpg",
+    "alt": "Placeholder para fotografía de galería 5 de Pablo Gómez",
+    "description": "[AGREGAR DESCRIPCIÓN DE LA FOTOGRAFÍA]",
+    "photographer": "MIKE FOTOGRAFIA",
+    "location": "SARAS"
+  },
+  {
+    "src": "assets/images/gallery/465086230_18289153402238712_5103149462025517681_n.jpg",
+    "alt": "Placeholder para fotografía de galería 6 de Pablo Gómez",
+    "description": "[AGREGAR DESCRIPCIÓN DE LA FOTOGRAFÍA]",
+    "photographer": "VINCENT BEJARANO",
+    "location": "LA ISLA CENTRO COMERCIAL, CANCUN"
+  },
+  {
+    "src": "assets/images/gallery/469623304_18294214873238712_5853932323020931462_n.jpg",
+    "alt": "Placeholder para fotografía de galería 6 de Pablo Gómez",
+    "description": "[AGREGAR DESCRIPCIÓN DE LA FOTOGRAFÍA]",
+    "photographer": "PUERTO TV",
+    "location": "PISO 5"
+  },
+  {
+    "src": "assets/images/gallery/485054348_9918347951533212_4950170884593285730_n.jpg",
+    "alt": "Placeholder para fotografía de galería 6 de Pablo Gómez",
+    "description": "[AGREGAR DESCRIPCIÓN DE LA FOTOGRAFÍA]",
+    "photographer": "PAULO PPS",
+    "location": "PARQUE MARINO, LA PERLA BRILLA"
+  },
+  {
+    "src": "assets/images/gallery/485897705_9938633702837970_8162075425091859955_n.jpg",
+    "alt": "Placeholder para fotografía de galería 6 de Pablo Gómez",
+    "description": "[AGREGAR DESCRIPCIÓN DE LA FOTOGRAFÍA]",
+    "photographer": "RKL FOTOGRAFIA",
+    "location": "SET DE FOTOGRAFIA RKL"
+  }
+]
