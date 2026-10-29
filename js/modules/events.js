@@ -8,21 +8,27 @@ function formatDateInput(date) {
   return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
 }
 
-function dateOffset(days) {
-  const date = new Date();
-  date.setHours(12, 0, 0, 0);
-  date.setDate(date.getDate() + days);
-  return formatDateInput(date);
-}
-
-// Datos de demostración. Reemplaza estas fechas/valores por eventos reales antes de producción.
+// Agenda confirmada.
 export const events = [
-  { id: 1, title: '[EVENTO DEMO — PASADO]', date: dateOffset(-9), time: '20:00', venue: '[LUGAR]', city: '[CIUDAD]', status: 'available' },
-  { id: 2, title: '[EVENTO DEMO — HOY]', date: dateOffset(0), time: '19:30', venue: '[LUGAR]', city: '[CIUDAD]', status: 'available' },
-  { id: 3, title: '[EVENTO DEMO — PRÓXIMO]', date: dateOffset(3), time: '21:00', venue: '[LUGAR]', city: '[CIUDAD]', status: 'available' },
-  { id: 4, title: '[EVENTO DEMO — ESTE MES]', date: dateOffset(12), time: '20:30', venue: '[LUGAR]', city: '[CIUDAD]', status: 'available' },
-  { id: 5, title: '[EVENTO DEMO — FUTURO]', date: dateOffset(35), time: '20:00', venue: '[LUGAR]', city: '[CIUDAD]', status: 'available' }
+  { id: 2, title: 'Chante de Fanny', date: '2026-10-29', time: '21:00', venue: 'Chante de Fanny', city: 'Puntarenas', status: 'available' },
+  { id: 3, title: 'Jorcos', date: '2026-10-30', time: '22:00', venue: 'Jorcos', city: 'Puntarenas', status: 'available' },
+  { id: 4, title: 'La Casa del Camarón (Halloween Party)', date: '2026-10-31', time: '22:00', venue: 'La Casa del Camarón', city: 'Puntarenas', status: 'available' },
+  { id: 5, title: 'Olga Party', date: '2026-11-05', time: '18:00', city: 'Puntarenas', status: 'available' },
+  { id: 6, title: 'Jorcos', date: '2026-11-06', time: '22:00', venue: 'Jorcos', city: 'Puntarenas', status: 'available' },
+  { id: 7, title: 'El Cerrito', date: '2026-11-07', time: '22:00', venue: 'Hacienda El Cerrito', city: 'Puntarenas', status: 'available' },
+  { id: 8, title: 'Fiesta privada', date: '2026-11-08', time: '17:00', venue: 'La Previa', city: 'Puntarenas', status: 'available' },
+  { id: 9, title: 'Jorcos', date: '2026-11-13', time: '22:00', venue: 'Jorcos', city: 'Puntarenas', status: 'available' },
+  { id: 15, title: 'Jorcos', date: '2026-11-14', time: '22:00', venue: 'Jorcos', city: 'Puntarenas', status: 'available' },
+  { id: 10, title: 'Jorcos', date: '2026-11-20', time: '22:00', venue: 'Jorcos', city: 'Puntarenas', status: 'available' },
+  { id: 11, title: 'Jorcos', date: '2026-11-27', time: '22:00', venue: 'Jorcos', city: 'Puntarenas', status: 'available' },
+  { id: 12, title: 'Fiesta privada', date: '2026-11-28', time: '17:00', city: 'Puntarenas', status: 'available' },
+  { id: 13, title: 'La Danta', date: '2026-11-28', time: '22:00', venue: 'La Danta', city: 'Puntarenas', status: 'available' },
+  { id: 14, title: 'Fiesta privada', date: '2026-11-29', allDay: true, city: 'San José', status: 'available' }
 ];
+
+function compareEvents(a, b) {
+  return a.date.localeCompare(b.date) || (a.time || '24:00').localeCompare(b.time || '24:00');
+}
 
 function parseLocalDate(value) {
   const [year, month, day] = value.split('-').map(Number);
@@ -121,7 +127,8 @@ function createEventCard(event, nearestUpcomingId) {
   title.textContent = event.title;
 
   const detail = document.createElement('p');
-  detail.textContent = `${formatDate(event.date)} · ${event.time} · ${event.venue} · ${event.city}`;
+  detail.textContent = [formatDate(event.date), event.allDay ? 'Todo el día' : event.time || 'Hora por confirmar', event.venue, event.city]
+    .filter(Boolean).join(' · ');
 
   content.append(stateLabel, title, detail);
   article.append(dateBox, content);
@@ -132,7 +139,7 @@ function nearestUpcomingEventId() {
   const today = startOfToday();
   return [...events]
     .filter((event) => parseLocalDate(event.date) >= today)
-    .sort((a, b) => parseLocalDate(a.date) - parseLocalDate(b.date))[0]?.id ?? null;
+    .sort(compareEvents)[0]?.id ?? null;
 }
 
 function setStatus(node, message, type = '') {
@@ -217,9 +224,10 @@ export function initEvents() {
   const list = document.querySelector('#events-list');
   const heading = document.querySelector('#events-heading');
   const count = document.querySelector('#event-count');
+  const pagination = document.querySelector('#events-pagination');
   const buttons = [...document.querySelectorAll('[data-event-filter]')];
 
-  if (!list || !heading || !count || !buttons.length) return;
+  if (!list || !heading || !count || !pagination || !buttons.length) return;
 
   const labels = {
     today: 'Eventos de hoy',
@@ -230,25 +238,48 @@ export function initEvents() {
     all: 'Todos los eventos'
   };
 
+  let activeFilter = 'upcoming';
+  let currentPage = 1;
+  const pageSize = 4;
+
   const render = (filter = 'upcoming') => {
     const nearestId = nearestUpcomingEventId();
     const filtered = [...events]
       .filter((event) => matchesFilter(event, filter))
-      .sort((a, b) => parseLocalDate(a.date) - parseLocalDate(b.date));
+      .sort(compareEvents);
 
     list.replaceChildren();
+    pagination.replaceChildren();
+    const pageCount = Math.ceil(filtered.length / pageSize);
+    currentPage = Math.max(1, Math.min(currentPage, pageCount));
     heading.textContent = labels[filter];
     count.textContent = `${filtered.length} ${filtered.length === 1 ? 'evento' : 'eventos'}`;
 
     if (!filtered.length) {
       const empty = document.createElement('p');
       empty.className = 'empty-state';
-      empty.textContent = 'No hay eventos de demostración para este filtro.';
+      empty.textContent = 'No hay eventos para este filtro.';
       list.append(empty);
       return;
     }
 
-    filtered.forEach((event) => list.append(createEventCard(event, nearestId)));
+    filtered.slice((currentPage - 1) * pageSize, currentPage * pageSize)
+      .forEach((event) => list.append(createEventCard(event, nearestId)));
+
+    for (let page = 1; page <= pageCount; page += 1) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = String(page);
+      button.setAttribute('aria-label', `Página ${page}`);
+      button.setAttribute('aria-controls', 'events-list');
+      if (page === currentPage) button.setAttribute('aria-current', 'page');
+      button.addEventListener('click', () => {
+        currentPage = page;
+        render(activeFilter);
+        pagination.querySelector('[aria-current="page"]')?.focus();
+      });
+      pagination.append(button);
+    }
   };
 
   buttons.forEach((button) => {
@@ -256,6 +287,8 @@ export function initEvents() {
       buttons.forEach((item) => item.classList.remove('is-active'));
       button.classList.add('is-active');
       const filter = button.dataset.eventFilter;
+      activeFilter = filter;
+      currentPage = 1;
       storage.set('event_preferences', { filter });
       render(filter);
     });
@@ -263,8 +296,34 @@ export function initEvents() {
 
   const savedFilter = storage.get('event_preferences', { filter: 'upcoming' })?.filter;
   const initial = labels[savedFilter] ? savedFilter : 'upcoming';
+  activeFilter = initial;
 
   buttons.forEach((button) => button.classList.toggle('is-active', button.dataset.eventFilter === initial));
   render(initial);
   initBooking();
+
+  let renderedDay = formatDateInput(new Date());
+  let dayTimer;
+
+  const refreshDay = () => {
+    const now = new Date();
+    const currentDay = formatDateInput(now);
+    if (currentDay !== renderedDay) {
+      renderedDay = currentDay;
+      render(activeFilter);
+      const dateInput = document.querySelector('#booking-date');
+      if (dateInput) dateInput.min = currentDay;
+    }
+
+    window.clearTimeout(dayTimer);
+    const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+    dayTimer = window.setTimeout(refreshDay, midnight.getTime() - now.getTime() + 100);
+  };
+
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) refreshDay();
+  });
+  window.addEventListener('focus', refreshDay);
+  window.addEventListener('pageshow', refreshDay);
+  refreshDay();
 }
